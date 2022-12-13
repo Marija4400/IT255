@@ -1,6 +1,6 @@
 <h1 class="h1">Dodajte let:</h1>
 <div class="card">
-    <form [formGroup]= "userForm">
+    <form [formGroup]= "userForm" >
         <div class="mt-5 box">
             <div class="form-row">
                 <div class="col-md-12">
@@ -10,7 +10,15 @@
                     <div class="form-row" style="margin-top: -10px;">
                         <div class="col">
                             <input type="text" formControlName="name" class="form-control" placeholder="Polazak">
-                             </div>
+                            <div *ngIf="userForm.controls['name'].invalid &&
+                            (userForm.controls['name'].dirty || userForm.controls['name'].touched)"
+                            class="alert alert-danger">
+                                Uneta vrednost mora imati najmanje 6 karaktera!!!
+                            <div *ngIf="$any(userForm.controls['name']).errors.required">
+                                Polazak je obavezan!!!
+                            </div>
+                        </div>    
+                        </div>
                     </div>
                 </div>
 
@@ -60,6 +68,28 @@
             </div>
         </div>
     </form>
+    <div class="form-check">
+        <input class="form-check-input" (click)="uvecajCenu()" type="checkbox" value="" id="ch1">
+        <label class="form-check-label" for="flexCheckDefault">
+          Direktan let
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" (click)="uvecajCenu()" type="checkbox" value="" id="ch2" checked>
+        <label class="form-check-label" for="flexCheckChecked">
+          Biznis klasa
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" (click)="uvecajCenu()" type="checkbox" value="" id="ch3" checked>
+        <label class="form-check-label" for="flexCheckChecked">
+          Gratis hrana
+        </label>
+      </div>
+
+      <p><i>Cena bez dodataka je 100$!</i></p>
+      <p><b>Nova cena je: {{cena}}</b></p>
+
     <div class="col-md-8 mt-4 mb-4">
         <table class="table table-bordered">
             <thead>
@@ -98,6 +128,7 @@
                 </tr> 
             </tbody>
         </table>
+      
     </div>
 
 </div>
