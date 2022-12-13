@@ -1,0 +1,103 @@
+<h1 class="h1">Dodajte let:</h1>
+<div class="card">
+    <form [formGroup]= "userForm">
+        <div class="mt-5 box">
+            <div class="form-row">
+                <div class="col-md-12">
+                    <div class="form-group mt-4">
+                        <label>Polazak: </label>
+                    </div>
+                    <div class="form-row" style="margin-top: -10px;">
+                        <div class="col">
+                            <input type="text" formControlName="name" class="form-control" placeholder="Polazak">
+                             </div>
+                    </div>
+                </div>
+
+                <div class="col-md-12">
+                    <div class="form-group mt-4">
+                        <label>Destinacija: </label>
+                    </div>
+                    <div class="form-row"style="margin-top: -10px;">
+                        <div class="col">
+                            <input type="text" formControlName="address" class="form-control" placeholder="Destinacija">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-12">
+                    <div class="form-group mt-4">
+                        <label>Datum polaska: </label>
+                    </div>
+                    <div class="form-row" style="margin-top: -10px;">
+                        <div class="col">
+                            <input type="text" formControlName="contactNo" class="form-control" placeholder="Datum polaska">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-12">
+                    <div class="form-group mt-4">
+                        <label>Vreme polaska: </label>
+                    </div>
+                    <div class="form-row" style="margin-top: -10px;">
+                        <div class="col">
+                            <input type="text" formControlName="gender" class="form-control" placeholder="Vreme polaska">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-row mt-4">
+                    <div class="col-md-6">
+                        <button type="button" class="btn btn-primary" (click)="addItem()">Add</button>&nbsp;
+                       </div>
+                        <div class="col-md-6">
+                        <button type="button" class="btn btn-primary" (click)="reset()">Reset</button>
+                    
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="col-md-8 mt-4 mb-4">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Polazak</th>
+                    <th>Destinacija</th>
+                    <th>Datum polaska</th>
+                    <th>Vreme</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Beograd</td>
+                    <td>Bec</td>
+                    <td>15.12.2022.</td>
+                    <td>12:00</td>
+                </tr>
+                <tr>
+                    <td>Nis</td>
+                    <td>Malta</td>
+                    <td>29.12.2022.</td>
+                    <td>16:00</td>
+                    </tr>
+                <tr>
+                    <td>Beograd</td>
+                    <td>Milano</td>
+                    <td>25.03.2023.</td>
+                    <td>14:00</td>
+                </tr>
+                <tr *ngFor="let item of listData">
+                    <td><span>{{item.name}}</span></td>
+                    <td><span>{{item.address}}</span></td>
+                    <td><span>{{item.contactNo}}</span></td>
+                    <td><span>{{item.gender}}</span></td>
+                    
+                </tr> 
+            </tbody>
+        </table>
+    </div>
+
+</div>

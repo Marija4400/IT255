@@ -1,0 +1,17 @@
+.box{
+    width: 50% ;
+    border: 1px solid ;
+    border-radius: 25px;
+    padding: 0px 20px 20px 20px;
+    margin-left: 400px;
+    background: rgb(241, 192, 128);
+   
+   
+}
+.card,h1{
+    background: rgb(250, 233, 187);
+}
+ table,th,td,tr{
+    background-color: rgb(241, 192, 128);
+    border: 1px solid;
+ }
