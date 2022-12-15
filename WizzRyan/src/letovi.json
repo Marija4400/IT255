@@ -1,0 +1,16 @@
+[
+    {
+      "brLeta": 110,
+      "avion": 599,
+      "cena": 1222,
+      "polazak": "BG",
+      "destinacija": "Milano"
+    },
+    {
+        "brLeta": 220,
+        "avion": 333,
+        "cena": 1000,
+        "polazak": "aa",
+        "destinacija": "Mss"
+    }
+  ]
