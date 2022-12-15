@@ -10,6 +10,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { PonudaComponent } from './ponuda/ponuda.component';
 import { PreporukaComponent } from './preporuka/preporuka.component';
 import { ONamaComponent } from './o-nama/o-nama.component';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ONamaComponent } from './o-nama/o-nama.component';
     NavbarComponent,
     PonudaComponent,
     PreporukaComponent,
-    ONamaComponent
+    ONamaComponent,
+
     ],
   imports: [
     BrowserModule,
@@ -26,7 +28,8 @@ import { ONamaComponent } from './o-nama/o-nama.component';
     BrowserModule,
     CommonModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
  ],
   providers: [],
   bootstrap: [AppComponent]

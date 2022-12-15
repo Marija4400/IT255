@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
+import { Flights } from '../models/flights';
+import { FlightService } from '../services/flight.service';
 
 @Component({
   selector: 'app-rows',
@@ -9,12 +11,13 @@ import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms'
 export class RowsComponent implements OnInit {
 
   userForm: FormGroup;
-  listData:any;
-  cena:number = 100;
+  listData!:Flights[];
+  cena:number = 0;
 
-  constructor(private fb: FormBuilder){
+  constructor(private fb: FormBuilder,private _FlightService:FlightService){
 
-    this.listData=[];
+     this._FlightService.getFlights().subscribe((data)=>{this.listData=data});
+    
 
     this.userForm = this.fb.group({
       name :['',Validators.required,Validators.minLength(6)],
@@ -44,7 +47,7 @@ export class RowsComponent implements OnInit {
   }
 
   public uvecajCenu(){
-    this.cena=100;
+    this.cena=0;
     const ch1:any = document.getElementById("ch1");
     const ch2:any = document.getElementById("ch2");
     const ch3:any= document.getElementById("ch3");
@@ -65,7 +68,15 @@ export class RowsComponent implements OnInit {
     }
   }
 
+  public getPrice(brLeta:Number){
+    const kolicina = document.getElementById("kolicina" + brLeta) as HTMLInputElement | null;
+    let flight = this.listData.find(flight=>flight.brLeta === brLeta);
+    if(kolicina !== null){
+      alert("Vas racun je: " + (flight!.cena + this.cena) * parseInt(kolicina?.value));
 
+    }
+
+  }
 
   ngOnInit() {
    

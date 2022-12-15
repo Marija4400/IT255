@@ -5,11 +5,11 @@
             <div class="form-row">
                 <div class="col-md-12">
                     <div class="form-group mt-4">
-                        <label>Polazak: </label>
+                        <label>Broj leta: </label>
                     </div>
                     <div class="form-row" style="margin-top: -10px;">
                         <div class="col">
-                            <input type="text" formControlName="name" class="form-control" placeholder="Polazak">
+                            <input type="text" formControlName="name" class="form-control" placeholder="Broj leta">
                             <div *ngIf="userForm.controls['name'].invalid &&
                             (userForm.controls['name'].dirty || userForm.controls['name'].touched)"
                             class="alert alert-danger">
@@ -24,33 +24,33 @@
 
                 <div class="col-md-12">
                     <div class="form-group mt-4">
-                        <label>Destinacija: </label>
+                        <label>Avion: </label>
                     </div>
                     <div class="form-row"style="margin-top: -10px;">
                         <div class="col">
-                            <input type="text" formControlName="address" class="form-control" placeholder="Destinacija">
+                            <input type="text" formControlName="address" class="form-control" placeholder="Avion">
                         </div>
                     </div>
                 </div>
 
                 <div class="col-md-12">
                     <div class="form-group mt-4">
-                        <label>Datum polaska: </label>
+                        <label>Cena: </label>
                     </div>
                     <div class="form-row" style="margin-top: -10px;">
                         <div class="col">
-                            <input type="text" formControlName="contactNo" class="form-control" placeholder="Datum polaska">
+                            <input type="text" formControlName="contactNo" class="form-control" placeholder="Cena">
                         </div>
                     </div>
                 </div>
 
                 <div class="col-md-12">
                     <div class="form-group mt-4">
-                        <label>Vreme polaska: </label>
+                        <label>Polazak: </label>
                     </div>
                     <div class="form-row" style="margin-top: -10px;">
                         <div class="col">
-                            <input type="text" formControlName="gender" class="form-control" placeholder="Vreme polaska">
+                            <input type="text" formControlName="gender" class="form-control" placeholder="Polazak">
                         </div>
                     </div>
                 </div>
@@ -75,57 +75,45 @@
         </label>
       </div>
       <div class="form-check">
-        <input class="form-check-input" (click)="uvecajCenu()" type="checkbox" value="" id="ch2" checked>
+        <input class="form-check-input" (click)="uvecajCenu()" type="checkbox" value="" id="ch2" >
         <label class="form-check-label" for="flexCheckChecked">
           Biznis klasa
         </label>
       </div>
       <div class="form-check">
-        <input class="form-check-input" (click)="uvecajCenu()" type="checkbox" value="" id="ch3" checked>
+        <input class="form-check-input" (click)="uvecajCenu()" type="checkbox" value="" id="ch3" >
         <label class="form-check-label" for="flexCheckChecked">
           Gratis hrana
         </label>
       </div>
 
-      <p><i>Cena bez dodataka je 100$!</i></p>
-      <p><b>Nova cena je: {{cena}}</b></p>
+      <p><b>Cena dodatnih usluga je: {{cena}}</b></p>
 
     <div class="col-md-8 mt-4 mb-4">
         <table class="table table-bordered">
             <thead>
                 <tr>
+                    <th>Broj leta</th>
+                    <th>Avion</th>
+                    <th>Cena</th>
                     <th>Polazak</th>
-                    <th>Destinacija</th>
-                    <th>Datum polaska</th>
-                    <th>Vreme</th>
+                    <th>Broj karata</th>
+                    <th>Kupi</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>Beograd</td>
-                    <td>Bec</td>
-                    <td>15.12.2022.</td>
-                    <td>12:00</td>
-                </tr>
-                <tr>
-                    <td>Nis</td>
-                    <td>Malta</td>
-                    <td>29.12.2022.</td>
-                    <td>16:00</td>
-                    </tr>
-                <tr>
-                    <td>Beograd</td>
-                    <td>Milano</td>
-                    <td>25.03.2023.</td>
-                    <td>14:00</td>
-                </tr>
+            
+
+
                 <tr *ngFor="let item of listData">
-                    <td><span>{{item.name}}</span></td>
-                    <td><span>{{item.address}}</span></td>
-                    <td><span>{{item.contactNo}}</span></td>
-                    <td><span>{{item.gender}}</span></td>
-                    
+                    <td><span>{{item.brLeta}}</span></td>
+                    <td><span>{{item.avion}}</span></td>
+                    <td><span>{{item.cena}}</span></td>
+                    <td><span>{{item.polazak}}</span></td>
+                    <td><input id="kolicina{{item.brLeta}}"type="text"></td>
+                    <td><button (click) = "getPrice(item.brLeta)" type="button" class="btn btn-primary">Kupi</button></td>
                 </tr> 
+
             </tbody>
         </table>
       
