@@ -1,0 +1,49 @@
+<h2>RAD SA BAZOM - 10. DOMACI ZADATAK:</h2>
+<div class="mat-elevation-z8">
+    <div>
+        <a mat-raised-button color="primary" (click)="Openpopup('')" style="margin: 2%;">Dodaj novi let</a>
+    </div>
+
+    <table mat-table [dataSource]="companydata" class="mat-elevation-z8">
+
+        <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef>ID</th>
+            <td mat-cell *matCellDef="let element">{{element.id}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="brLeta">
+            <th mat-header-cell *matHeaderCellDef>Broj leta</th>
+            <td mat-cell *matCellDef="let element">{{element.brLeta | number}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="polazak">
+            <th mat-header-cell *matHeaderCellDef>Polazak</th>
+            <td mat-cell *matCellDef="let element">{{element.polazak}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="destinacija">
+            <th mat-header-cell *matHeaderCellDef>Destinacija</th>
+            <td mat-cell *matCellDef="let element">{{element.destinacija}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="vreme">
+            <th mat-header-cell *matHeaderCellDef>Vreme</th>
+            <td mat-cell *matCellDef="let element">{{element.vreme}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="action">
+            <th mat-header-cell *matHeaderCellDef>Action</th>
+            <td mat-cell *matCellDef="let element">
+                <div>
+                    <a mat-raised-button (click)="EditCompany(element.id)" color="primary">Edit</a>
+                    <a mat-raised-button (click)="RemoveCompany(element.id)" color="accent">Delete</a>
+                </div>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayColums"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayColums;"></tr>
+
+
+    </table>
+</div>

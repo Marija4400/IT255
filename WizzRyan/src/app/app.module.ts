@@ -9,8 +9,12 @@ import { RowsComponent } from './rows/rows.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { PonudaComponent } from './ponuda/ponuda.component';
 import { PreporukaComponent } from './preporuka/preporuka.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ONamaComponent } from './o-nama/o-nama.component';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { KompanijaComponent } from './kompanija/kompanija.component';
+import { PopupComponent } from './popup/popup.component';
+import { MaterialModule } from 'src/MaterialModule';
 
 @NgModule({
   declarations: [
@@ -20,6 +24,8 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
     PonudaComponent,
     PreporukaComponent,
     ONamaComponent,
+    KompanijaComponent,
+    PopupComponent,
 
     ],
   imports: [
@@ -29,7 +35,12 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
     CommonModule,
     ReactiveFormsModule,
     FormsModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MaterialModule,
+    ReactiveFormsModule,
     HttpClientModule
+
  ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,8 +1,17 @@
-<ul>
-    <li><a [routerLink]="['ponuda']">Ponuda</a></li>
-    <li><a [routerLink]="['preporuka']">Preporuka</a></li>
-    <li><a [routerLink]="['o-nama']">O nama</a></li>
-</ul>
+
+  <a class="navbar-brand" routerLink="/">
+  </a>
 
 
+  <div class="navbar navbar-dark bg-dark" >
+    <div class="navbar-nav">
+      <a class="nav-item nav-link active" routerLink="/kompanija">10. Domaci zadatak</a>
+      <a class="nav-item nav-link" routerLink="/o-nama">O nama</a>
+      <a class="nav-item nav-link" routerLink="/ponuda">Ponuda</a>
+      <a class="nav-item nav-link" routerLink="/preporuka">Preporuka</a>
+    </div>
+  </div>
 
+
+    <router-outlet></router-outlet>
+ 
